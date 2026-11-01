@@ -1,0 +1,9 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conectar TikTok · Clipador</title><link rel="stylesheet" href="estilo.css"></head><body><main>
+<h1>Conectar <span>TikTok</span></h1>
+<div class="card" id="c"><p>Procesando…</p></div>
+<script>
+var p=new URLSearchParams(location.search),c=document.getElementById('c');
+if(p.get('code')){c.innerHTML='<h2>✓ Permiso concedido</h2><p>Copia este código y pégalo en Clipador:</p><p><code id="k"></code></p><button onclick="navigator.clipboard.writeText(document.getElementById(\'k\').textContent);this.textContent=\'Copiado ✓\'">Copiar código</button>';document.getElementById('k').textContent=p.get('code');}
+else{c.innerHTML='<h2>No se recibió ningún código</h2><p>'+(p.get('error_description')||'Vuelve a intentarlo desde Clipador.')+'</p>';}
+</script></main></body></html>
